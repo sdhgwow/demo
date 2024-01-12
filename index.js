@@ -172,9 +172,6 @@ bot.on('message', async msg => {
         let nickname = rows.length > 0 ? rows[0].user_nickname : 0;
 
         if (text === '/start') {
-            if (level === 0) {
-                await bot.sendMessage(chatID,'Уровень Ваших прав не позволяет Вам использовать данную команду.');
-            }
 
             if (level === 1) {
                 await bot.sendMessage(chatID,`Доброго времени суток, ${nickname}! Вам необходимо выбрать действие:`, startBtnWlevel1);
@@ -190,6 +187,10 @@ bot.on('message', async msg => {
 
             if (level === 4) {
                 await bot.sendMessage(chatID,`Доброго времени суток, ${nickname}! Вам необходимо выбрать действие:`, startBtnWlevel4);
+            }
+            
+            else {
+                await bot.sendMessage(chatID,'Уровень Ваших прав не позволяет Вам использовать данную команду.');
             }
         }
 
